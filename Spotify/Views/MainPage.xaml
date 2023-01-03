@@ -146,26 +146,26 @@
         </CollectionView>
 
         <Grid RowDefinitions="*, 2*"
-              ColumnDefinitions="auto, auto, 2*"
+              ColumnDefinitions="*, auto, 2*"
               Margin="25, 0, 0, 0">
 
-            <Border Grid.Column="0"
-                    StrokeShape="RoundRectangle 40"
-                    Grid.RowSpan="2"
-                    Stroke="#2a2a2a"
-                    StrokeThickness="0.1">
-
-                <Image
-                    Source="bon_jovi.jpg"
-                    HeightRequest="80"
-                    WidthRequest="80" />
-            </Border>
+            <Image Source="bon_jovi.jpg"
+                   Grid.Column="0"
+                   Grid.RowSpan="2">
+                <Image.Clip>
+                    <EllipseGeometry RadiusX="40"
+                                     RadiusY="40"
+                                     Center="40,40">
+                        
+                    </EllipseGeometry>
+                </Image.Clip>
+            </Image>
 
             <Label Grid.Column="1"
                    Grid.Row="0"
                    Text="MORE LIKE" 
                    TextColor="White"
-                   Padding="20,0"
+                   Padding="10,0"
                    FontSize="14"
                    FontAttributes="None"
                    FontFamily="RMR"
@@ -176,7 +176,7 @@
                    Grid.Row="1"
                    Text="Bon Jovi" 
                    TextColor="White"
-                   Padding="20,0"
+                   Padding="10,0"
                    FontSize="25"
                    FontAttributes="Bold"
                    FontFamily="Lobster-Regula"
