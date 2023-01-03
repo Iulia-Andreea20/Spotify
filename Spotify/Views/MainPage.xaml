@@ -5,14 +5,18 @@
              xmlns:icon="clr-namespace:Spotify.Utils"
              x:Class="Spotify.Views.MainPage">
 
-    <VerticalStackLayout BackgroundColor="Black">
+    <Grid RowDefinitions="*, auto"
+          ColumnDefinitions="*">
 
-        <Grid RowDefinitions="auto"
+        <VerticalStackLayout BackgroundColor="Black"
+                             Grid.RowSpan="2">
+
+            <Grid RowDefinitions="auto"
                   ColumnDefinitions="auto, *, *, *, *"
                   HeightRequest="75"
                   Margin="0, 30, 0, 15">
 
-            <Label Grid.Column="0" 
+                <Label Grid.Column="0" 
                        TextColor="White"
                        Text="Good afternoon"
                        Padding="20,20"
@@ -20,7 +24,7 @@
                        FontAttributes="Bold"
                        FontFamily="Lobster-Regular"/>
 
-            <Label Grid.Column="2"
+                <Label Grid.Column="2"
                        TextColor="White"
                        Text="{x:Static icon:IconFont.Bell}"
                        FontFamily="FGRID"
@@ -28,7 +32,7 @@
                        VerticalOptions="Center" 
                        HorizontalOptions="Center"/>
 
-            <Label Grid.Column="3"
+                <Label Grid.Column="3"
                        TextColor="White"
                        Text="{x:Static icon:IconFont.Clock}"
                        FontFamily="FGRID"
@@ -37,7 +41,7 @@
                        HorizontalOptions="Center"
                        FontAttributes="Bold"/>
 
-            <Label Grid.Column="4"
+                <Label Grid.Column="4"
                        TextColor="White"
                        Text="{x:Static icon:IconFont.Settings}"
                        FontFamily="FGRID"
@@ -46,92 +50,92 @@
                        HorizontalOptions="Center"
                        FontAttributes="Bold"/>
 
-        </Grid>
+            </Grid>
 
-        <Grid RowDefinitions="auto"
+            <Grid RowDefinitions="auto"
               ColumnDefinitions="auto, auto"
               Margin="25,0,0,0">
 
-            <Border Grid.Column="0"
+                <Border Grid.Column="0"
                     StrokeShape="RoundRectangle 40"
                     Padding="20,10"
                     Stroke="#2a2a2a"
                     Background="#2a2a2a"
                     Margin="0,0,8,0">
 
-                <Label Text="Music"
+                    <Label Text="Music"
                            TextColor="White"
                            FontSize="16"
                            VerticalOptions="Center" 
                            HorizontalOptions="Center"
                            FontAttributes="Bold"
                            />
-            </Border>
+                </Border>
 
-            <Border Grid.Column="1"
+                <Border Grid.Column="1"
                     StrokeShape="RoundRectangle 40"
                     Padding="20,10"
                     Stroke="#2a2a2a"
                     Background="#2a2a2a">
 
-                <Label Text="Podcasts &amp; Shows"
+                    <Label Text="Podcasts &amp; Shows"
                            TextColor="White"
                            FontSize="16"
                            VerticalOptions="Center" 
                            HorizontalOptions="Center"
                            FontAttributes="Bold"/>
-            </Border>
-        </Grid>
+                </Border>
+            </Grid>
 
-        <CollectionView Margin="20,30">
-            <CollectionView.ItemsSource>
-                <x:Array Type="{x:Type model:Song}">
-                    <model:Song SongName="Liked Songs"
+            <CollectionView Margin="20,30">
+                <CollectionView.ItemsSource>
+                    <x:Array Type="{x:Type model:Song}">
+                        <model:Song SongName="Liked Songs"
                                     Image="liked_songs.jpg"/>
-                    <model:Song SongName="Discover Weekly"
+                        <model:Song SongName="Discover Weekly"
                                     Image="discover_weekly.jpg"/>
-                    <model:Song SongName="Your Top Songs 2022"
+                        <model:Song SongName="Your Top Songs 2022"
                                     Image="your_top_songs_2022.jpg"/>
-                    <model:Song SongName="Daily Mix 1"
+                        <model:Song SongName="Daily Mix 1"
                                     Image="daily_mix_1.jpg"/>
-                    <model:Song SongName="Zonga Music"
+                        <model:Song SongName="Zonga Music"
                                     Image="zonga_music_1.jpg"/>
-                    <model:Song SongName="Zonga Music (2)"
+                        <model:Song SongName="Zonga Music (2)"
                                     Image="zonga_music_2.jpg"/>
+                    </x:Array>
 
-                </x:Array>
-            </CollectionView.ItemsSource>
+                </CollectionView.ItemsSource>
 
-            <CollectionView.ItemsLayout>
-                <GridItemsLayout Orientation="Vertical" 
+                <CollectionView.ItemsLayout>
+                    <GridItemsLayout Orientation="Vertical" 
                                  Span="2" 
                                  HorizontalItemSpacing="10" 
                                  VerticalItemSpacing="10"/>
-            </CollectionView.ItemsLayout>
+                </CollectionView.ItemsLayout>
 
-            <CollectionView.ItemTemplate>
-                <DataTemplate>
-                    <Grid ColumnDefinitions="auto, *"
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid ColumnDefinitions="auto, *"
                           RowDefinitions="*">
 
-                        <Border Grid.Column="0"
+                            <Border Grid.Column="0"
                                 StrokeShape="RoundRectangle 5 0 5 0"
                                 Stroke="#2a2a2a"
                                 StrokeThickness="0.1">
 
-                            <Image
+                                <Image
                                    Source="{Binding Image}"
                                    HeightRequest="80"
                                    WidthRequest="80" />
-                        </Border>
+                            </Border>
 
-                        <Border Grid.Column="1"
+                            <Border Grid.Column="1"
                                 StrokeShape="RoundRectangle 0 5 0 5"
                                 Stroke="#2a2a2a"
                                 StrokeThickness="0.1"
                                 Background="#2a2a2a">
 
-                            <Label 
+                                <Label 
                                    Text="{Binding SongName}" 
                                    TextColor="White"
                                    Padding="10,0"
@@ -139,40 +143,38 @@
                                    FontSize="16"
                                    VerticalTextAlignment="Center"
                                    HorizontalTextAlignment="Start"/>
-                        </Border>
-                    </Grid>
-                </DataTemplate>
-            </CollectionView.ItemTemplate>
-        </CollectionView>
+                            </Border>
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
 
-        <Grid RowDefinitions="*, 2*"
+            <Grid RowDefinitions="*, 2*"
               ColumnDefinitions="*, auto, 2*"
               Margin="25, 0, 0, 0">
 
-            <Image Source="bon_jovi.jpg"
+                <Image Source="bon_jovi.jpg"
                    Grid.Column="0"
                    Grid.RowSpan="2">
-                <Image.Clip>
-                    <EllipseGeometry RadiusX="40"
+                    <Image.Clip>
+                        <EllipseGeometry RadiusX="40"
                                      RadiusY="40"
                                      Center="40,40">
-                        
-                    </EllipseGeometry>
-                </Image.Clip>
-            </Image>
+                        </EllipseGeometry>
+                    </Image.Clip>
+                </Image>
 
-            <Label Grid.Column="1"
+                <Label Grid.Column="1"
                    Grid.Row="0"
                    Text="MORE LIKE" 
                    TextColor="White"
                    Padding="10,0"
                    FontSize="14"
-                   FontAttributes="None"
                    FontFamily="RMR"
                    VerticalTextAlignment="End"
                    HorizontalTextAlignment="Start"/>
 
-            <Label Grid.Column="1"
+                <Label Grid.Column="1"
                    Grid.Row="1"
                    Text="Bon Jovi" 
                    TextColor="White"
@@ -182,6 +184,82 @@
                    FontFamily="Lobster-Regula"
                    VerticalTextAlignment="Start"
                    HorizontalTextAlignment="Start"/>
-        </Grid>
-    </VerticalStackLayout>
+            </Grid>
+        </VerticalStackLayout>
+
+        <VerticalStackLayout Grid.Row="1">
+            <Border
+              StrokeShape="RoundRectangle 5"
+              Stroke="#2a2a2a"
+              StrokeThickness="0.1"
+              Background="#2a2a2a"
+            Margin="10,0">
+
+                <Grid RowDefinitions="*, *"
+                  ColumnDefinitions="auto, 2*, 3*, *, *, *"
+                  Margin="15, 10">
+
+                    <Border Grid.Column="0"
+                        Grid.RowSpan="2"
+                        StrokeShape="RoundRectangle 10"
+                        Stroke="#2a2a2a"
+                        StrokeThickness="0.1">
+
+                        <Image
+                           Source="cover.jpg"
+                           HeightRequest="70"
+                           WidthRequest="70" />
+                    </Border>
+
+                    <Label Grid.Column="1"
+                       Grid.Row="0"
+                       Text="Break" 
+                       TextColor="White"
+                       Padding="10,0"
+                       FontAttributes="Bold"
+                       FontSize="16"
+                       VerticalTextAlignment="Center"
+                       HorizontalTextAlignment="Start"/>
+
+                    <Label Grid.Column="1"
+                       Grid.Row="1"
+                       Grid.ColumnSpan ="2"
+                       Text="Three Days Grace" 
+                       TextColor="White"
+                       Padding="10,0"
+                       FontSize="13"
+                       FontFamily="RMR"
+                       VerticalTextAlignment="Start"
+                       HorizontalTextAlignment="Start"/>
+
+                    <Label Grid.Column="3"
+                       Grid.RowSpan="2"
+                       TextColor="Grey"
+                       Text="{x:Static icon:IconFont.MP3}"
+                       FontFamily="SI"
+                       FontSize="25"
+                       VerticalOptions="Center" 
+                       HorizontalOptions="Center"/>
+
+                    <Label Grid.Column="4"
+                       Grid.RowSpan="2"
+                       TextColor="White"
+                       Text="{x:Static icon:IconFont.Like}"
+                       FontFamily="SI"
+                       FontSize="25"
+                       VerticalOptions="Center" 
+                       HorizontalOptions="Center"/>
+
+                    <Label Grid.Column="5"
+                       Grid.RowSpan="2"
+                       TextColor="White"
+                       Text="{x:Static icon:IconFont.Pause}"
+                       FontFamily="SI"
+                       FontSize="22"
+                       VerticalOptions="Center" 
+                       HorizontalOptions="Center"/>
+                </Grid>
+            </Border>
+        </VerticalStackLayout>
+    </Grid>
 </ContentPage>

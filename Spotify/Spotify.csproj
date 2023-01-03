@@ -62,8 +62,10 @@
 	  <None Remove="Resources\Fonts\icomoon.ttf" />
 	  <None Remove="Resources\Fonts\RobotoMono-Light.ttf" />
 	  <None Remove="Resources\Fonts\RobotoMono-Regular.ttf" />
+	  <None Remove="Resources\Fonts\Song-Icons.ttf" />
 	  <None Remove="Resources\Images\Bon_Jovi.jfif" />
 	  <None Remove="Resources\Images\Bon_Jovi.jpg" />
+	  <None Remove="Resources\Images\cover.jpg" />
 	  <None Remove="Resources\Images\daily_mix_1.jpg" />
 	  <None Remove="Resources\Images\discover_weekly.jfif" />
 	  <None Remove="Resources\Images\discover_weekly.jpg" />
